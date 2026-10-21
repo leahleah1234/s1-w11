@@ -9,6 +9,9 @@ public class Eye {
     private int pupilRadius = 10;
     private double horDist, vertDist;
 
+    private int clickedX;
+    private int clickedY;
+
 
     public Eye(int x, int y, int width, int height) {
         // top left of this eye
@@ -39,7 +42,7 @@ public class Eye {
     }
 
     
-    public void draw (Graphics g) {
+    public void draw (Graphics g, int clickedX, int clickedY) {
         
         g.setColor(Color.black);
         g.fillOval (eyeX, eyeY, eyeWidth, eyeHeight);
@@ -50,6 +53,11 @@ public class Eye {
                     
         g.setColor(Color.black);
         g.fillOval(pupilX - pupilRadius, pupilY - pupilRadius, 2 * pupilRadius, 2 * pupilRadius);
+
+        g.setColor(Color.red);
+        g.drawLine(clickedX, clickedY, eyeCenterX, eyeCenterY);
+
+        
     }
 
 
