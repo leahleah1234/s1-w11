@@ -18,11 +18,10 @@ public class XEyes extends JPanel implements MouseListener, MouseMotionListener 
 
     // Each eye gets an instance variable.
     private Eye eye_1;
-    private Eye eye_2 ;
+    private Eye eye_2;
 
     private int clickedX;
     private int clickedY;
-
 
     // Constructor: this loads the image "einstein.jpg" in the "images" directory
     // within the project
@@ -57,7 +56,7 @@ public class XEyes extends JPanel implements MouseListener, MouseMotionListener 
     public void paintComponent(Graphics g) {
 
         g.drawImage(myPic.getImage(), 0, 0, this);
-    
+
         eye_1.draw(g, clickedX, clickedY);
 
         eye_2.draw(g, clickedX, clickedY);
@@ -68,14 +67,12 @@ public class XEyes extends JPanel implements MouseListener, MouseMotionListener 
     public void mouseClicked(MouseEvent event) {
         // eyeClick =;
         // if (eyeClick % 2 == 0) {
-        //     eye_1 = new Eye(event.getX() - (49 / 2), event.getY() - (37 / 2), 49, 37);
-        //     repaint();
+        // eye_1 = new Eye(event.getX() - (49 / 2), event.getY() - (37 / 2), 49, 37);
+        // repaint();
         // } else
-        //     eye_2 = new Eye(event.getX() - (49 / 2), event.getY() - (37 / 2), 49, 37);
+        // eye_2 = new Eye(event.getX() - (49 / 2), event.getY() - (37 / 2), 49, 37);
         // repaint();
 
-    clickedX = event.getX();
-    clickedY = event.getY();
     }
 
     public void mouseReleased(MouseEvent event) {
@@ -95,8 +92,10 @@ public class XEyes extends JPanel implements MouseListener, MouseMotionListener 
         eye_1.movePupil(event.getX(), event.getY());
         eye_2.movePupil(event.getX(), event.getY());
 
-        repaint();
+        clickedX = event.getX();
+        clickedY = event.getY();
 
+        repaint();
 
     }
 
